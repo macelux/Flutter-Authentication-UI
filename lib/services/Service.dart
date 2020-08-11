@@ -3,45 +3,18 @@ import 'package:authentication_ui/models/Employee.dart';
 import 'package:http/http.dart' as http;
 
 class Service {
-  static const ROOT = "https://test.champandy.com/tasks";
-
-  //Method to add EMployee
-  // static Future<Employee> getEmployee() async{
-  //  try {
-  //     //var map = Map<String, dynamic>();
-  //     //map['action'] = "get";
-  //     //final response = await http.post(ROOT, body: map);
-  //     final response = await http.get(ROOT);
-  //     //print("Create table response ${response.body}");
-  //     //print(response.body);
-  //     if (response.statusCode == 200) {
-  //       //List<Employee> list = parseResponse(response.body);
-  //       // var list = parseResponse(response.body);
-  //       // print(list);
-  //       return Employee.fromJson(json.decode(response.body));
-  //     } else {
-  //       return Employee();
-  //     }
-  //   } catch (e) {
-  //     return Employee(); // return an empty list on exception error
-  //   }
-  // }
+  static const ROOT = "https://test.champandy.com/tasks"; // define the resource url
 
   // Method to get EMployee
   static Future<List<Employee>> getEmployee() async {
     try {
-      //var map = Map<String, dynamic>();
-      //map['action'] = "get";
-      //final response = await http.post(ROOT, body: map);
-      final response = await http.get(ROOT);
-      //print("Create table response ${response.body}");
-      //print(response.body);
-      if (response.statusCode == 200) { 
-        List<Employee> list = parseResponse(response.body);  
-        
+      final response = await http.get(ROOT); // get API resource from url
+      if (response.statusCode == 200) {
+        List<Employee> list = parseResponse(response.body);
+
         return list;
       } else {
-        return List<Employee>();
+        return List<Employee>(); // return an empty list on exception error
       }
     } catch (e) {
       return List<Employee>(); // return an empty list on exception error
@@ -49,7 +22,8 @@ class Service {
   }
 
   static List<Employee> parseResponse(String responseBody) {
-    final parsed = json.decode(responseBody);   
+    final parsed = json.decode(responseBody);
+    // map Json data from response to Employee Model
     return parsed.map<Employee>((json) => Employee.fromJson(json)).toList();
   }
 

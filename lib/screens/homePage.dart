@@ -31,6 +31,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // App Bar
       appBar: AppBar(
         title: Text("Auth UI", style: TextStyle(color: Colors.white)),
         actions: <Widget>[
@@ -46,37 +47,56 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: Center(child: Text("Main Page")),
-      drawer: Drawer( 
+
+      // App Sidebar
+      drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.all(1.0),
           children: <Widget>[
-            DrawerHeader(
-              child: Text("Menu", style: TextStyle(fontSize: 19, color: Colors.white),),
-              decoration: BoxDecoration(
-                color: Colors.red[400],
+            // DrawerHeader(
+            //   child: Text("Menu", style: TextStyle(fontSize: 19, color: Colors.white),),
+            //   decoration: BoxDecoration(
+            //     color: Colors.red[400],
+            //   ),
+            // ),
+            UserAccountsDrawerHeader(
+              accountName: Text("Fikayomi Chibueze",
+                  style: TextStyle(
+                    fontSize: 23,
+                  )),
+              accountEmail: Text("mac@gmail.com",
+                  style: TextStyle(
+                    fontSize: 15,
+                  )),
+              currentAccountPicture: GestureDetector(
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.person,
+                    size: 60,
+                  ),
+                ),
               ),
+              decoration: BoxDecoration(color: Colors.grey),
             ),
-            ListTile(
-              title: Text("Datatable", style: TextStyle(fontSize: 18, ),),
-              leading: IconButton(icon: Icon(Icons.alarm), onPressed: () {}),
+
+            InkWell(
+              child: ListTile(
+                title: Text("Datatable", style: TextStyle(fontSize: 18)),
+                leading: IconButton(icon: Icon(Icons.alarm), onPressed: () {}), 
+              ),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => DataTableDemo()));
-              },
-              
-            )
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => DataTableDemo()));
+                },
+            ),
           ],
-          //         child: IconButton(
-          //   icon: Icon(Icons.refresh),
-          //   onPressed: () {
-          //     Navigator.of(context).push(
-          //         MaterialPageRoute(
-          //             builder: (BuildContext context) => DataTableDemo()) );
-          //   },
-          // ),
         ),
       ),
+
+
+      // body 
+      body: Center(child: Text("Main Page")),
     );
   }
 }
