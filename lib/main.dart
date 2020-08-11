@@ -1,23 +1,18 @@
+import 'package:authentication_ui/screens/LoginScreen.dart';
+import 'package:authentication_ui/screens/login.dart';
 import 'package:flutter/material.dart';
-import './screens/welcome/welcome_screen.dart';
-import './constants.dart';
 
-void main() => runApp(MyApp());
+
+void main() {  runApp(MyApp());}
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Auth',
-      theme: ThemeData(
-        primaryColor: KPrimaryColor,
-        scaffoldBackgroundColor: KPrimaryLightColor,
-      ),
-      home: WelcomeScreen(),
+      title: 'Authentication Demo',
+      theme: ThemeData(primarySwatch: Colors.red),
+      home: Login(),
     );
   }
 }
-
- 

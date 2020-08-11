@@ -5,11 +5,9 @@ class Background extends StatelessWidget {
   const Background({
     Key key, 
     @required this.child,
-  }) : super(key: key);
+  }) : super(key: key);  
 
-   
-
-  @override
+   @override
   Widget build(BuildContext context) {
       // this size provides us the total height and width of our screen
     Size size =MediaQuery.of(context).size;
@@ -23,14 +21,7 @@ class Background extends StatelessWidget {
             left: 0,
             child: Image.asset("assets/icons/tfc.png"),
             width: size.width * 0.3,
-          ), 
-          Positioned(
-            bottom: 0,
-            left: 0,
-           child: Image.asset("assets/images/STUDENTS.jpg"),
-            width: size.width * 0.3,
-          ),
-
+          ),  
           child,
         ],
       )
