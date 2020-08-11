@@ -37,15 +37,8 @@ class Service {
       //print("Create table response ${response.body}");
       //print(response.body);
       if (response.statusCode == 200) { 
-         print(json.decode(response.body));
-        //List<Employee> list = parseResponse(response.body); 
-       List<Employee> list = json.decode(response.body)
-      .map((json) => Employee.fromJson(json))
-      .toList();
-       //var list = parseResponse(response.body); 
-       
-
-
+        List<Employee> list = parseResponse(response.body);  
+        
         return list;
       } else {
         return List<Employee>();

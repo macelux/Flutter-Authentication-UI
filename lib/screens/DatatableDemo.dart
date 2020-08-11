@@ -72,8 +72,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
       setState(() {
         _employees = employees;
       });
-      _showProgress(widget.title); // Reset the title
-      print(employees);
+      _showProgress(widget.title); // Reset the title 
       print("length ${employees.length}");
     });
   }
@@ -113,7 +112,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
     // _firstNameController.text = employee.firstName;
     // _lastNameController.text = employee.lastName;
     _firstNameController.text = employee.task;
-    _lastNameController.text = employee.status;
+    _lastNameController.text = employee.task;
   }
 
   // create Datatables and show the employee list
@@ -157,7 +156,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
                   _selectedEmployee = employee; // set the selected employee to be updated
                   _showValues(employee); 
                 }),
-                DataCell(Text(employee.status.toUpperCase()),
+                DataCell(Text(employee.task.toUpperCase()),
                 onTap: () {
                   _selectedEmployee = employee; // set the selected employee to be updated
                   _showValues(employee); 

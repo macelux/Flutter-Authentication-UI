@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
           child: Center(
             child: Column(
               children: <Widget>[
-                FlutterLogo(colors: Colors.red, size: 120),
+                FlutterLogo(colors: Colors.brown, size: 120),
                 SizedBox(height: 40),
                 TextFormField(
                     decoration: InputDecoration(
@@ -47,7 +47,7 @@ class _LoginState extends State<Login> {
                         fontSize: 21,
                         fontWeight: FontWeight.w300),
                   ),
-                  color: Colors.red,
+                  color: Colors.black38,
                   minWidth: 500,
                   height: 50,
                   shape: RoundedRectangleBorder(

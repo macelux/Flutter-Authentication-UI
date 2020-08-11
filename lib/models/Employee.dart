@@ -17,21 +17,16 @@
 class Employee {
   int id;
   String task;
-  String status;
+  int status;
   String created;
 
   Employee({ this.task, this.status, this.id, this.created});
 
-  factory Employee.fromJson(Map<String, dynamic> json) {
-    // return Employee(
-    //   id: json['id'] as int,
-    //   firstName: json['first_name'] as String,
-    //   lastName: json['last_name'] as String,
-    // );
+  factory Employee.fromJson(Map<String, dynamic> json) { 
      return Employee(
       id: json['id'] as int,
       task: json['task'] as String,
-      status: json['status'] as String,
+      status: json['status'] as int,
       created: json['created'] as String
     );
   }
